@@ -6,7 +6,7 @@ from core.logic import get_bot_response
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
-socket_io = SocketIO(app, cors_allowed_origins="*")
+socket_io = SocketIO(app, cors_allowed_origins="https://arifdev-coder.github.io/ZarickAI-frontend/")
 
 @app.route('/')
 def index():
