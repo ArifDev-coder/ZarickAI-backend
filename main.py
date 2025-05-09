@@ -20,4 +20,4 @@ def handle_message(data):
     emit("response", {"message": bot_response})
     
 if __name__ == '__main__':
-    socket_io.run(app, host='0.0.0.0', port=5000)
+    socket_io.run(app, host='0.0.0.0', port=5000, allow_unsafe_werkzeug=True)
