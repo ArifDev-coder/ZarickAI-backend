@@ -1,8 +1,11 @@
 import os
+import eventlet
 from dotenv import load_dotenv
 from flask import Flask
 from flask_socketio import SocketIO, emit
 from core.logic import get_bot_response
+
+eventlet.monkey_patch()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
@@ -20,4 +23,4 @@ def handle_message(data):
     emit("response", {"message": bot_response})
     
 if __name__ == '__main__':
-    socket_io.run(app, host='0.0.0.0', port=5000, allow_unsafe_werkzeug=True)
+    socket_io.run(app, host='0.0.0.0', port=5000)
