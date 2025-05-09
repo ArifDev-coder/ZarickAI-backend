@@ -9,7 +9,7 @@ eventlet.monkey_patch()
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
-socket_io = SocketIO(app, cors_allowed_origins="https://arifdev-coder.github.io/ZarickAI-frontend/")
+socket_io = SocketIO(app, cors_allowed_origins=os.getenv("CORS_ALLOWED_ORIGINS"))
 
 @app.route('/')
 def index():
